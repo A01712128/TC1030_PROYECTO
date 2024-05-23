@@ -31,3 +31,7 @@ En resumen, este gestor de tareas es una herramienta útil para cualquier person
 2. **Fallos en la programación de tareas con fecha y hora:** Si el programa no maneja correctamente las fechas de vencimiento y horas programadas de las tareas, podría resultar en tareas que no se muestren correctamente o se pierdan.
 
 Las clases mencionadas anteriormente ayudan a que las tareas se gestionen de manera correcta según sus características y problemas como los anteriores puedan ser evitados.
+
+# Código Datos
+El uso de las funciones virtuales en mi código en la clase "TareaBase" es que permite que sus clases derivadas ("TareaSimple" y "TareaProgramada") sobreescriban las funciones cuando sea necesario.
+
