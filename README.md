@@ -32,6 +32,5 @@ En resumen, este gestor de tareas es una herramienta útil para cualquier person
 
 Las clases mencionadas anteriormente ayudan a que las tareas se gestionen de manera correcta según sus características y problemas como los anteriores puedan ser evitados.
 
-# Código Datos
-El uso de las funciones virtuales en mi código en la clase "TareaBase" es que permite que sus clases derivadas ("TareaSimple" y "TareaProgramada") sobreescriban las funciones cuando sea necesario.
+
 
