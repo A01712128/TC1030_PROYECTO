@@ -1,34 +1,18 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <ctime>
-#include "TareaBase.h"
-using namespace std;
+#ifndef TAREAPROGRAMADA_H
+#define TAREAPROGRAMADA_H
 
-// Clase derivada para tareas programadas
+#include "TareaBase.h"
+#include <ctime>
+
 class TareaProgramada : public TareaBase {
 private:
-    time_t fechaVencimiento; // Fecha de vencimiento de la tarea
+    time_t fechaVencimiento;
 
 public:
-    // Constructor que llama al constructor de la clase base y establece la fecha de vencimiento
-    TareaProgramada(const string& desc, time_t fecha)
-        : TareaBase(desc), fechaVencimiento(fecha) {}
-
-    // Método para establecer la fecha de vencimiento
-    void setFechaVencimiento(time_t fecha) {
-        fechaVencimiento = fecha;
-    }
-
-    // Método para obtener la fecha de vencimiento
-    time_t getFechaVencimiento() const {
-        return fechaVencimiento;
-    }
-
-    // Sobrescritura del método getDescripcion para incluir la fecha de vencimiento
-    string getDescripcion() const override {
-        char buffer[80];
-        strftime(buffer, sizeof(buffer), "%Y-%m-%d", localtime(&fechaVencimiento));
-        return TareaBase::getDescripcion() + " (vencimiento: " + buffer + ")";
-    }
+    TareaProgramada(const string& desc, time_t fecha);
+    void setFechaVencimiento(time_t fecha);
+    time_t getFechaVencimiento() const;
+    string getDescripcion() const override;
 };
+
+#endif // TAREAPROGRAMADA_H
