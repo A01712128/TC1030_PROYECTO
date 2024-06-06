@@ -1,11 +1,12 @@
-#include <iostream>
-#include <string>
-#include "TareaBase.h"
-using namespace std;
+#ifndef TAREASIMPLE_H
+#define TAREASIMPLE_H
 
-// Clase derivada para tareas simples
+#include "TareaBase.h"
+
 class TareaSimple : public TareaBase {
 public:
-    // Constructor que llama al constructor de la clase base
-    TareaSimple(const string& desc) : TareaBase(desc) {}
+    TareaSimple(const string& desc);
+    string getDescripcion() const override;
 };
+
+#endif // TAREASIMPLE_H
