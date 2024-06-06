@@ -1,38 +1,22 @@
-#include <iostream>
-#include <string>
+#ifndef USUARIO_H
+#define USUARIO_H
+
 #include "ListaTareas.h"
+#include <string>
 using namespace std;
 
-// Clase para representar a un usuario
 class Usuario {
 private:
-    string nombre; // Nombre del usuario
-    string correo; // Correo del usuario
-    ListaTareas listaTareas; // Lista de tareas del usuario
+    string nombre;
+    string correo;
+    ListaTareas listaTareas;
 
 public:
-    // Método para establecer el nombre del usuario
-    void setNombre(const string& nom) {
-        nombre = nom;
-    }
-
-    // Método para establecer el correo del usuario
-    void setCorreo(const string& mail) {
-        correo = mail;
-    }
-
-    // Método para obtener el nombre del usuario
-    string getNombre() const {
-        return nombre;
-    }
-
-    // Método para obtener el correo del usuario
-    string getCorreo() const {
-        return correo;
-    }
-
-    // Método para obtener la lista de tareas del usuario
-    ListaTareas& getListaTareas() {
-        return listaTareas;
-    }
+    void setNombre(const string& nom);
+    void setCorreo(const string& mail);
+    string getNombre() const;
+    string getCorreo() const;
+    ListaTareas& getListaTareas();
 };
+
+#endif // USUARIO_H
