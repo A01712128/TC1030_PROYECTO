@@ -8,13 +8,11 @@ Las funcionalidades clave de este gestor de tareas son las siguientes:
 2. **Marcar tareas como completadas:** Los usuarios pueden marcar las tareas como completadas una vez que han sido realizadas.
 3. **Organizar tareas:** Las tareas pueden ser organizadas por categoría, prioridad o fecha de vencimiento, según las necesidades del usuario. 
 4. **Visualización de tareas:** Los usuarios pueden ver todas sus tareas en una lista, con información sobre su estado (completada o no) y otros detalles relevantes. 
-5. **Recordatorios:** El gestor de tareas puede proporcionar recordatorios o alertas para tareas próximas a su fecha de vencimiento. 
-6. **Gestión de usuarios:** Permite a los usuarios crear y gestionar sus cuentas, con información como nombre, correo electrónico, etc. 
+5. **Gestión de usuarios:** Permite a los usuarios crear y gestionar sus cuentas, con información como nombre, correo electrónico, etc. 
 
 Los beneficios del gestor de tareas son los siguientes:
 - Organización: Ayuda a los usuarios a organizar sus tareas diarias y a tener una visión clara de lo que deben hacer. 
 - Productividad: Al tener una lista estructurada de tareas, los usuarios pueden priorizar y completar sus actividades de manera más eficiente.
-- Recordatorio: Evita olvidos al recordar a los usuarios las tareas pendientes y las fechas límite. 
 - Seguimiento: Permite a los usuarios realizar un seguimiento de su progreso y ver qué tareas han completado y cuáles quedan pendientes. 
 
 En resumen, este gestor de tareas es una herramienta útil para cualquier persona que busque mejorar su organización y productividad al gestionar sus tareas diarias de manera efectiva.
@@ -27,10 +25,8 @@ En resumen, este gestor de tareas es una herramienta útil para cualquier person
 5.  **Usuario:** Esta clase contiene información sobre el usuario y proporciona métodos para acceder y modificar esta información.
 
 # Fallos:
-1.  **Problemas al agregar o eliminar tareas:** Si el programa no puede agregar o eliminar tareas correctamente de la lista, podría comportarse de forma extraña o incluso dejar de funcionar.
-2. **Fallos en la programación de tareas con fecha y hora:** Si el programa no maneja correctamente las fechas de vencimiento y horas programadas de las tareas, podría resultar en tareas que no se muestren correctamente o se pierdan.
+1. **Fallos en la programación de tareas con fecha:** Si el usuario no escribe de manera correcta las fechas de vencimiento de las tareas programadas como muestra el ejemplo, no se agrega exitosamente la tarea y tendria que ingresar nuevamente la tarea de la manera correcta.
 
-Las clases mencionadas anteriormente ayudan a que las tareas se gestionen de manera correcta según sus características y problemas como los anteriores puedan ser evitados.
 
 
 
