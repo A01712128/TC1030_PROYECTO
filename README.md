@@ -17,16 +17,21 @@ Los beneficios del gestor de tareas son los siguientes:
 
 En resumen, este gestor de tareas es una herramienta útil para cualquier persona que busque mejorar su organización y productividad al gestionar sus tareas diarias de manera efectiva.
 
-# Clases utilizadas en el programa:
+# Clases utilizadas en el programa
 1.  **TareaBase:** Esta clase sirve como base para todas las tareas y define la estructura básica de una tarea.
 2.  **TareaSimple:** Esta clase hereda de Task y representa una tarea sin fecha de vencimiento ni categoría.
 3.  **TareaProgramada:** Esta clase también hereda de Task y representa una tarea con fecha de vencimiento y hora programada.
 4.  **ListaTareas:** Esta clase gestiona una lista de tareas para un usuario específico.
 5.  **Usuario:** Esta clase contiene información sobre el usuario y proporciona métodos para acceder y modificar esta información.
 
-# Fallos:
+# Fallos
 1. **Fallos en la programación de tareas con fecha:** Si el usuario no escribe de manera correcta las fechas de vencimiento de las tareas programadas como muestra el ejemplo, no se agrega exitosamente la tarea y tendria que ingresar nuevamente la tarea de la manera correcta.
 
-
+# Bibliotecas
+Para mi proyecto utilicé únicamente 4 bibliotecas las cuales fueron:
+- Iostream: Se utiliza para la entrada y salida estándar. (Para leer datos del usuario desde la consola y enseñar los resultados.)
+- Ctime: Se utiliza para cuando se trabaja con fechas. En mi proyecto la utilicé para convertir cadenas de fecha en el siguiente formato ("YYYY-MM-DD).
+- String: Se utiliza para cuando se trabaja con cadenas de caractéres ('string'). En mi proyecto lo utilicé para las descripciones de tareas, nombre del usuario y sus correos.
+- Vector: Se utiliza para cuando se trabaja con vectores. En mi proyecto lo utilicé para almacenar las tareas en la lista de tareas.
 
 
