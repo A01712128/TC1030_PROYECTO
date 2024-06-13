@@ -26,27 +26,50 @@ private:
     ListaTareas listaTareas; // Lista de tareas del usuario
 
 public:
-    // Establece el nombre del usuario
-    void setNombre(string& nom) {
-        nombre = nom;
+    /**
+     * Establece el nombre del usuario.
+     *
+     * @param nombre Nombre del usuario.
+     */
+    void setNombre(string& nombre) {
+        this->nombre = nombre;
     }
 
-    // Establece el correo del usuario
-    void setCorreo(string& mail) {
-        correo = mail;
-    }
-
-    // Retorna el nombre del usuario
+    /**
+     * Retorna el nombre del usuario.
+     *
+     * @param 
+     * @return El nombre del usuario.
+     */
     string getNombre() {
         return nombre;
     }
 
-    // Retorna el correo del usuario
+    /**
+     * Establece el correo del usuario.
+     *
+     * @param correo Correo del usuario.
+     */
+    void setCorreo(string& correo) {
+        this->correo = correo;
+    }
+
+    /**
+     * Retorna el correo del usuario.
+     *
+     * @param 
+     * @return El correo del usuario.
+     */
     string getCorreo() {
         return correo;
     }
 
-    // Retorna la lista de tareas del usuario
+    /**
+     * Retorna la lista de tareas del usuario.
+     *
+     * @param 
+     * @return La lista de tareas del usuario.
+     */
     ListaTareas& getListaTareas() {
         return listaTareas;
     }
