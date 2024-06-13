@@ -12,7 +12,7 @@
  * del usuario y sus tareas.
  */
 
-#ifndef USUARIO_H // Si USUARIO_H no ha sido definido,
+#ifndef USUARIO_H
 #define USUARIO_H
 
 #include "ListaTareas.h"
@@ -21,16 +21,35 @@ using namespace std;
 
 class Usuario {
 private:
-    string nombre; // Nombre del usuario.
-    string correo; // Correo del usuario.
-    ListaTareas listaTareas; // Lista de tareas.
+    string nombre; // Nombre del usuario
+    string correo; // Correo del usuario
+    ListaTareas listaTareas; // Lista de tareas del usuario
 
 public:
-    void setNombre(const string& nom); // Método para establecer el nombre del usuario.
-    void setCorreo(const string& mail); // Método para establecer el correo del usuario.
-    string getNombre() const; // Método para obtener el nombre del usuario.
-    string getCorreo() const; // Método para obtener el correo del usuario.
-    ListaTareas& getListaTareas(); // Método para obtener la lista de tareas del usuario.
+    // Establece el nombre del usuario
+    void setNombre(string& nom) {
+        nombre = nom;
+    }
+
+    // Establece el correo del usuario
+    void setCorreo(string& mail) {
+        correo = mail;
+    }
+
+    // Retorna el nombre del usuario
+    string getNombre() {
+        return nombre;
+    }
+
+    // Retorna el correo del usuario
+    string getCorreo() {
+        return correo;
+    }
+
+    // Retorna la lista de tareas del usuario
+    ListaTareas& getListaTareas() {
+        return listaTareas;
+    }
 };
 
 #endif // USUARIO_H
