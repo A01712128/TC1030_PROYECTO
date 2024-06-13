@@ -23,22 +23,42 @@ private:
     time_t fechaVencimiento; // Fecha de vencimiento de la tarea
 
 public:
-    // Constructor
-// El const significa que dentro del cuerpo del constructor, no se puede modificar el string al que desc hace referencia.
-    TareaProgramada(const string& desc, time_t fecha) : TareaBase(desc), fechaVencimiento(fecha) {}
+/**
+ * Constructor de TareaProgramada.
+ *
+ * @param desc Descripción de la tarea.
+ * @param fecha Fecha de vencimiento de la tarea.
 
-    // Establece la fecha de vencimiento
+El const significa que dentro del cuerpo del constructor, no se puede modificar el string al que desc hace referencia.
+ */
+    TareaProgramada(const string& desc, time_t fecha) : TareaBase(desc), fechaVencimiento(fecha) {}
+/**
+ * Establece la fecha de vencimiento.
+ *
+ * @param fecha Fecha de vencimiento.
+ */
     void setFechaVencimiento(time_t fecha) {
         fechaVencimiento = fecha;
     }
 
-    // Retorna la fecha de vencimiento
+/**
+ * Retorna la fecha de vencimiento de la tarea.
+ *
+ * @param 
+ * @return La fecha de vencimiento de la tarea.
+ */
     time_t getFechaVencimiento() const {
         return fechaVencimiento;
     }
 
-    // Retorna la descripción de la tarea, incluyendo la fecha de vencimiento
-// En la función getDescripcion de la clase TareaProgramada, el const al final indica que la función no modificará ningún miembro de datos de la clase. Se utiliza strftime para formatear la fecha de vencimiento y almacenarla en un buffer de caracteres. Esta fecha formateada se concatena con la descripción de la tarea y se devuelve como resultado de la función. El buffer es un área de almacenamiento temporal para el resultado formateado de la fecha. El uso de const es importante para garantizar que la función no altere el estado del objeto y mantenga la integridad de los datos.
+/**
+ * Retorna la descripción de la tarea.
+ *
+ * @param 
+ * @return La descripción de la tarea.
+
+En la función getDescripcion de la clase TareaProgramada, el const al final indica que la función no modificará ningún miembro de datos de la clase. Se utiliza strftime para formatear la fecha de vencimiento y almacenarla en un buffer de caracteres. Esta fecha formateada se concatena con la descripción de la tarea y se devuelve como resultado de la función. El buffer es un área de almacenamiento temporal para el resultado formateado de la fecha. El uso de const es importante para garantizar que la función no altere el estado del objeto y mantenga la integridad de los datos.
+ */
     string getDescripcion() const override {
         char buffer[80];
         strftime(buffer, sizeof(buffer), "%Y-%m-%d", localtime(&fechaVencimiento));
@@ -47,3 +67,4 @@ public:
 };
 
 #endif // TAREAPROGRAMADA_H
+
