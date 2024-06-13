@@ -11,15 +11,22 @@
  * para crear tareas simples sin una fecha límite.
  */
 
-#ifndef TAREASIMPLE_H // Si TAREASIMPLE_H no ha sido definido,
+#ifndef TAREASIMPLE_H
 #define TAREASIMPLE_H
 
 #include "TareaBase.h"
 
 class TareaSimple : public TareaBase {
 public:
-    TareaSimple(const string& desc); // Constructor que inicia la descripción de la tarea simple.
-    string getDescripcion() const override; // Método para obtener la descripción de la tarea simple.
+// Constructor: recibe un string desc y lo pasa al constructor de TareaBase.
+// El const antes de string& desc indica que desc no se modificará dentro del constructor.
+    TareaSimple(const string& desc) : TareaBase(desc) {}
+
+// Método getDescripcion: devuelve la descripción de la tarea.
+// El const override asegura que no altere el estado del objeto y sobrescribe correctamente la función virtual de la clase base.
+    string getDescripcion() const override {
+        return descripcion;
+    }
 };
 
 #endif // TAREASIMPLE_H
