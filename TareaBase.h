@@ -37,6 +37,7 @@ public:
     }
 
     // Retorna la descripción de la tarea (método puro virtual)
+// const al final de la declaración de la función virtual, indica que la función no modificará el estado del objeto.
     virtual string getDescripcion() const = 0;
 
     // Retorna si la tarea está completada
@@ -44,7 +45,7 @@ public:
         return completada;
     }
 
-    // Destructor virtual
+    // Destructor virtual (se utiliza para permitir la eliminación de objetos derivados))
     virtual ~TareaBase() {}
 };
 
