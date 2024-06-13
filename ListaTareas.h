@@ -45,6 +45,7 @@ public:
     void mostrarTareas() const {
         for (size_t i = 0; i < tareas.size(); ++i) {
             cout << "[" << i + 1 << "] ";
+            //dynamic_cast se usa para saber si una tarea es una "Tarea Programada" o una "Tarea Simple" y mostrar esta información de manera adecuada en la lista de tareas. 
             cout << (dynamic_cast<TareaProgramada*>(tareas[i]) ? "Tarea Programada: " : "Tarea Simple: ");
             cout << "Descripcion: " << tareas[i]->getDescripcion() << "\n";
             cout << "Completada: " << (tareas[i]->estaCompletada() ? "Si" : "No") << "\n";
