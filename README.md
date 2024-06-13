@@ -34,4 +34,18 @@ Para mi proyecto utilicé únicamente 4 bibliotecas las cuales fueron:
 - String: Se utiliza para cuando se trabaja con cadenas de caractéres ('string'). En mi proyecto lo utilicé para las descripciones de tareas, nombre del usuario y sus correos.
 - Vector: Se utiliza para cuando se trabaja con vectores. En mi proyecto lo utilicé para almacenar las tareas en la lista de tareas.
 
+# Revaluación
+- Competencia: "SICT0301A Evalúa los componentes que integran una problemática."
+  - Identifico de manera correcta las clases a utilizar para solucionar el problema
+  - Identifico los casos que harían que el proyecto deje de funcionar
+  - Genero un diagrama de clases UML correcto y y explico su relación con el problema de         forma clara
+- Competencia: "SICT0303A Implementa acciones científicas"
+  - Se implementa de manera correcta el concepto de Herencia
+  -  Se implementa de manera correcta la sobrecarga y sobreescritura de métodos
+  -  Se implementa de manera correcta el concepto de Clases Abstractas
+
+
+
+
+
 
