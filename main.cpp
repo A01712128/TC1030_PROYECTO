@@ -12,11 +12,11 @@
  * y marcar tareas como completadas.
  */
 
-#include "Usuario.h" // Incluye la clase Usuario.
-#include "TareaSimple.h" // Incluye la clase TareaSimple.
-#include "TareaProgramada.h" // Incluye la clase TareaProgramada.
-#include <iostream> // Biblioteca para manejo de entrada y salida.
-#include <ctime> // Biblioteca para fechas.
+#include "Usuario.h"
+#include "TareaSimple.h"
+#include "TareaProgramada.h"
+#include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -24,7 +24,7 @@ using namespace std;
 time_t stringToTimeT(const string& fechaStr) {
     tm tm = {};
     if (sscanf(fechaStr.c_str(), "%d-%d-%d", &tm.tm_year, &tm.tm_mon, &tm.tm_mday) == 3) {
-        tm.tm_year -= 1900; //Ajuste año
+        tm.tm_year -= 1900; // Ajuste año
         tm.tm_mon -= 1; // Ajuste mes
         return mktime(&tm); // Convierte la fecha en formato de texto
     }
@@ -35,12 +35,12 @@ time_t stringToTimeT(const string& fechaStr) {
 int main() {
     Usuario usuario; // Crea el objeto usuario
     string nombre, correo; 
-    
+
     // Solicita al usuario su nombre
     cout << "Ingrese su nombre: ";
     getline(cin, nombre); // Utiliza getline para leer una línea completa (Es útil para leer entradas de usuario que pueden contener espacios, como nombres completos)
     usuario.setNombre(nombre);
-    
+
     // Solicita al usuario su correo
     cout << "Ingrese su correo: ";
     getline(cin, correo); // Utiliza getline para leer una línea completa
@@ -88,6 +88,7 @@ int main() {
             }
             case 3: {
                 // Muestra todas las tareas
+                usuario.getListaTareas().mostrarTareas();
                 break;
             }
             case 4: {
