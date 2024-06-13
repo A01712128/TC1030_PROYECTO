@@ -23,29 +23,55 @@ protected:
     bool completada; // Estado de completitud de la tarea
 
 public:
-    // Constructor
+/**
+ * Constructor de TareaBase.
+ *
+ * @param desc Descripción de la tarea.
+ */
     TareaBase(const string& desc) : descripcion(desc), completada(false) {}
-
-    // Marca la tarea como completada
+/**
+ * Marca la tarea como completada.
+ *
+ * @param 
+ * @return 
+ */
     virtual void marcarCompletada() {
         completada = true;
     }
 
-    // Marca la tarea como incompleta
+/**
+ * Marca la tarea como incompleta.
+ *
+ * @param 
+ * @return 
+ */
     virtual void marcarIncompleta() {
         completada = false;
     }
+/**
+ * Retorna la descripción de la tarea.
+ *
+ * @param 
+ * @return La descripción de la tarea.
 
-    // Retorna la descripción de la tarea (método puro virtual)
-// const al final de la declaración de la función virtual, indica que la función no modificará el estado del objeto.
+Const al final de la declaración de la función virtual, indica que la función no modificará el estado del objeto.
+ */
     virtual string getDescripcion() const = 0;
 
-    // Retorna si la tarea está completada
+/**
+ * Retorna si la tarea está completada.
+ *
+ * @param 
+ * @return true si la tarea está completada, false de lo contrario.
+ */
     virtual bool estaCompletada() const {
         return completada;
     }
+/**
+ * Destructor virtual.
 
-    // Destructor virtual (se utiliza para permitir la eliminación de objetos derivados))
+Destructor virtual (se utiliza para permitir la eliminación de objetos derivados))
+ */
     virtual ~TareaBase() {}
 };
 
