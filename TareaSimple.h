@@ -18,12 +18,24 @@
 
 class TareaSimple : public TareaBase {
 public:
-// Constructor: recibe un string desc y lo pasa al constructor de TareaBase.
-// El const antes de string& desc indica que desc no se modificará dentro del constructor.
-    TareaSimple(const string& desc) : TareaBase(desc) {}
+/**
+ * Constructor de TareaSimple.
+ *
+ * @param desc Descripción de la tarea.
 
-// Método getDescripcion: devuelve la descripción de la tarea.
-// El const override asegura que no altere el estado del objeto y sobrescribe correctamente la función virtual de la clase base.
+Constructor: recibe un string desc y lo pasa al constructor de TareaBase.
+// El const antes de string& desc indica que desc no se modificará dentro del constructor.
+ */
+    TareaSimple(const string& desc) : TareaBase(desc) {}
+/**
+ * Retorna la descripción de la tarea.
+ *
+ * @param
+ * @return La descripción de la tarea.
+
+Método getDescripcion: devuelve la descripción de la tarea.
+El const override asegura que no altere el estado del objeto y sobrescribe correctamente la función virtual de la clase base.
+ */
     string getDescripcion() const override {
         return descripcion;
     }
