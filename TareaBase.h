@@ -11,7 +11,7 @@
  * es utilizada como base para las clases TareaSimple y TareaProgramada.
  */
 
-#ifndef TAREABASE_H // Si TAREABASE_H no ha sido definido,
+#ifndef TAREABASE_H
 #define TAREABASE_H
 
 #include <string>
@@ -19,17 +19,33 @@ using namespace std;
 
 class TareaBase {
 protected:
-    string descripcion; // Descripción de la tarea.
-    bool completada; // Estado de la tarea.
+    string descripcion; // Descripción de la tarea
+    bool completada; // Estado de completitud de la tarea
 
 public:
-    TareaBase(const string& desc); // Constructor que inicia la descripción y el estado de la tarea.
+    // Constructor
+    TareaBase(const string& desc) : descripcion(desc), completada(false) {}
 
-    virtual void marcarCompletada(); // Método virtual para marcar la tarea como completada.
-    virtual void marcarIncompleta(); // Método virtual para marcar la tarea como incompleta.
-    virtual string getDescripcion() const = 0; // Método virtual puro para obtener la descripción de la tarea.
-    virtual bool estaCompletada() const; // Método virtual para verificar si la tarea está completada.
-    virtual ~TareaBase() = 0; // Destructor virtual puro.
+    // Marca la tarea como completada
+    virtual void marcarCompletada() {
+        completada = true;
+    }
+
+    // Marca la tarea como incompleta
+    virtual void marcarIncompleta() {
+        completada = false;
+    }
+
+    // Retorna la descripción de la tarea (método puro virtual)
+    virtual string getDescripcion() const = 0;
+
+    // Retorna si la tarea está completada
+    virtual bool estaCompletada() const {
+        return completada;
+    }
+
+    // Destructor virtual
+    virtual ~TareaBase() {}
 };
 
 #endif // TAREABASE_H
