@@ -19,8 +19,13 @@
 #include <ctime>
 
 using namespace std;
+/**
+ * Esta función la utilizo para convertir una cadena de fecha en el formato "YYYY-MM-DD" (time_t).
+ *
+ * @param fechaStr La fecha en formato de cadena "YYYY-MM-DD".
+ * @return El objeto time_t correspondiente a la fecha, o -1 si la conversión falla.
+ */
 
-// Esta función la utilizo para convertir una cadena de fecha en el formato "YYYY-MM-DD".
 time_t stringToTimeT(const string& fechaStr) {
     tm tm = {};
     if (sscanf(fechaStr.c_str(), "%d-%d-%d", &tm.tm_year, &tm.tm_mon, &tm.tm_mday) == 3) {
@@ -31,7 +36,14 @@ time_t stringToTimeT(const string& fechaStr) {
     return -1; // Retorna -1 si la conversión falla (Si el usuario introduce mal la fecha, el programa detecta este valor y muestra un mensaje de error).
 }
 
-// Función principal
+/**
+ * Función principal que ejecuta el programa.
+ *
+ * Crea un objeto Usuario y permite al usuario interactuar con el sistema
+ * de gestión de tareas a través de un menú.
+ *
+ * @return 0 al finalizar el programa.
+ */
 int main() {
     Usuario usuario; // Crea el objeto usuario
     string nombre, correo; 
