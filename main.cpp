@@ -23,125 +23,27 @@ using namespace std;
 // Esta función la utilizo para convertir una cadena de fecha en el formato "YYYY-MM-DD".
 time_t stringToTimeT(const string& fechaStr) {
     tm tm = {};
-    // sscan f la utilizo para dividir la fecha en año, mes y día
     if (sscanf(fechaStr.c_str(), "%d-%d-%d", &tm.tm_year, &tm.tm_mon, &tm.tm_mday) == 3) {
-        tm.tm_year -= 2000; //Ajuste año
+        tm.tm_year -= 1900; //Ajuste año
         tm.tm_mon -= 1; // Ajuste mes
         return mktime(&tm); // Convierte la fecha en formato de texto
     }
-    return -1;
-}
-
-// Implementaciones de TareaBase
-TareaBase::TareaBase(const string& desc) : descripcion(desc), completada(false) {}
-
-// MArca la tarea como completada
-void TareaBase::marcarCompletada() {
-    completada = true;
-}
-
-// Marca la tarea como incompleta
-void TareaBase::marcarIncompleta() {
-    completada = false;
-}
-
-// Esto verifica si la tarea está completada
-bool TareaBase::estaCompletada() const {
-    return completada;
-}
-
-TareaBase::~TareaBase() {}
-
-// Implementaciones de TareaSimple
-TareaSimple::TareaSimple(const string& desc) : TareaBase(desc) {}
-
-// Devuelve la descripcion de la tarea
-string TareaSimple::getDescripcion() const {
-    return descripcion;
-}
-
-// Implementaciones de TareaProgramada
-TareaProgramada::TareaProgramada(const string& desc, time_t fecha)
-    : TareaBase(desc), fechaVencimiento(fecha) {}
-
-// Establece la fecha de vencimiento de la tarea
-void TareaProgramada::setFechaVencimiento(time_t fecha) {
-    fechaVencimiento = fecha;
-}
-
-// Devuelve la fecha de vencimiento
-time_t TareaProgramada::getFechaVencimiento() const {
-    return fechaVencimiento;
-}
-
-// Devuelve la descripcion de la tarea con la fecha de vencimiento
-// El buffer lo utilizo para guardar la fecha de vencimineto en un formato legible
-string TareaProgramada::getDescripcion() const {
-    char buffer[80];
-    strftime(buffer, sizeof(buffer), "%Y-%m-%d", localtime(&fechaVencimiento));
-    return descripcion + " (vencimiento: " + buffer + ")";
-}
-
-// Implementaciones de ListaTareas
-// Agrega una tarea a la lista
-void ListaTareas::agregarTarea(TareaBase* tarea) {
-    tareas.push_back(tarea);
-}
-
-// Muestra todas la tareas de la lista
-void ListaTareas::mostrarTareas() const {
-    for (const auto& tarea : tareas) {
-        cout << (dynamic_cast<TareaProgramada*>(tarea) ? "Tarea Programada: " : "Tarea Simple: ");
-        cout << "Descripcion: " << tarea->getDescripcion() << "\n";
-        cout << "Completada: " << (tarea->estaCompletada() ? "Si" : "No") << "\n";
-        cout << "-------------------\n";
-    }
-}
-
-// Destructor de la lista de tareas para liberar memoria
-ListaTareas::~ListaTareas() {
-    for (auto& tarea : tareas) {
-        delete tarea;
-    }
-}
-
-// Implementaciones de Usuario
-// Se asigna el nombre del usuario
-void Usuario::setNombre(const string& nom) {
-    nombre = nom;
-}
-
-// Se asigna el correo del usuario
-void Usuario::setCorreo(const string& mail) {
-    correo = mail;
-}
-
-// Devuelve el nombre del usuario
-string Usuario::getNombre() const {
-    return nombre;
-}
-
-// Devuelve el correo del usuario
-string Usuario::getCorreo() const {
-    return correo;
-}
-
-// Devuelve la lista de tareas del usuario
-ListaTareas& Usuario::getListaTareas() {
-    return listaTareas;
+    return -1; // Retorna -1 si la conversión falla (Si el usuario introduce mal la fecha, el programa detecta este valor y muestra un mensaje de error).
 }
 
 // Función principal
 int main() {
     Usuario usuario; // Crea el objeto usuario
-    string nombre, correo;
+    string nombre, correo; 
+    
     // Solicita al usuario su nombre
     cout << "Ingrese su nombre: ";
-    getline(cin, nombre);
+    getline(cin, nombre); // Utiliza getline para leer una línea completa (Es útil para leer entradas de usuario que pueden contener espacios, como nombres completos)
     usuario.setNombre(nombre);
+    
     // Solicita al usuario su correo
     cout << "Ingrese su correo: ";
-    getline(cin, correo);
+    getline(cin, correo); // Utiliza getline para leer una línea completa
     usuario.setCorreo(correo);
 
     bool continuar = true;
@@ -156,12 +58,12 @@ int main() {
         cout << "5. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
-        cin.ignore();
+        cin.ignore(); // Limpia el buffer de entrada después de leer una entrada cin. (Asegura que la siguiente llamada a getline lea la entrada del usuario correctamente)
 
         switch (opcion) {
             case 1: {
-                // Se agrega una tarea simple
                 string descripcion;
+                // Solicita y agrega una tarea simple
                 cout << "Ingrese la descripcion de la tarea simple: ";
                 getline(cin, descripcion);
                 TareaSimple* tarea = new TareaSimple(descripcion);
@@ -169,8 +71,8 @@ int main() {
                 break;
             }
             case 2: {
-                // Se agrega una tarea programada
                 string descripcion, fechaStr;
+                // Solicita y agrega una tarea programada
                 cout << "Ingrese la descripcion de la tarea programada: ";
                 getline(cin, descripcion);
                 cout << "Ingrese la fecha de vencimiento (YYYY-MM-DD): ";
@@ -186,24 +88,26 @@ int main() {
             }
             case 3: {
                 // Muestra todas las tareas
-                usuario.getListaTareas().mostrarTareas();
                 break;
             }
             case 4: {
-                // Marca tarea como completada
-                string descripcion;
-                cout << "Ingrese la descripcion de la tarea a marcar como completada: ";
-                getline(cin, descripcion);
-                for (TareaBase* tarea : usuario.getListaTareas().getTareas()) {
-                    if (tarea->getDescripcion() == descripcion) {
-                        tarea->marcarCompletada();
-                        break;
-                    }
+                int indice;
+                // Marca una tarea como completada
+                cout << "Ingrese el número de índice de la tarea a marcar como completada: ";
+                cin >> indice;
+                cin.ignore();
+
+                if (indice > 0 && indice <= usuario.getListaTareas().getTareas().size()) {
+                    TareaBase* tarea = usuario.getListaTareas().getTareas()[indice - 1];
+                    tarea->marcarCompletada();
+                    cout << "Tarea marcada como completada.\n";
+                } else {
+                    cout << "Índice no encontrado. Intente de nuevo.\n";
                 }
                 break;
             }
             case 5: {
-                // Se sale del programa
+                // Sale del programa
                 continuar = false;
                 break;
             }
